@@ -22,7 +22,7 @@
     <!--hero  image -->
     <img src="assets/hero-furniture.png" alt="">
     <!--hero content -->
-    <div class="content text-center md:text-end md:mr-10 md:max-w-[50vw]">
+    <div class="content text-center md:text-end md:mr-10 md:max-w-[50vw] m-2">
       <h1 class="font-[Cairo] text-5xl/15  sm:text-7xl/20 
                 font-semibold text-[#B38F76]
                 mb-5
@@ -30,7 +30,8 @@
         نشتري الأثاث المستعمل في الكويت بأفضل سعر
         <p class="font-[DM Sans] text-sm/5 font-normal">نشتري الأثاث المستعمل، المكيفات الشغالة والخربانة، الأجهزة الكهربائية، الإلكترونيات، وغرف النوم مع فك ونقل فوري.</p>
       </h1>
-      <div class="flex gap-4 justify-end"><a  href="tel:+96599482898" 
+      <div class="flex gap-4 justify-center md:justify-end">
+        <a  href="tel:+96599482898" 
           class="btn bg-black text-white px-6 py-2 mb-4
                   transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black duration-300
       ">اتصل الان</a> </div>
@@ -40,15 +41,15 @@
 
 @for(section of Furniture ;track section.sectionTitle){
   <section>
-    <div class="m-10 text-center font-[Cairo]">
+    <div class="m-5 sm:m-10 text-center font-[Cairo]">
       <h2 class=" font-bold text-3xl sm:text-5xl mb-2">
         {{section.sectionTitle}}
       </h2>
 
-      <div class="cards grid grid-cols-4 gap-4 gap-y-10 items-center justify-center">
+      <div class="cards grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-4 gap-y-10 items-center justify-center">
         @for(card of section.sectionContent;track card.id)
         {
-            <div class="text-end " [class.col-start-2]="card.id === 5"  >
+            <div class="flex flex-col items-center sm:items-end" [class.md:col-start-2]="card.id === 5"  >
               <img [src]="card.imgUrl" [alt]="card.title">
               <h4 class="mt-1">{{card.title}}</h4>
             </div>
@@ -60,17 +61,17 @@
 }
 
 <section>
-  <div class="flex m-10 gap-5 text-end font-[DM Sans] h-225 overflow-hidden">
-    <div class="basis-1/2 h-full flex flex-col">
+  <div class="flex flex-col md:flex-row m-0 sm:m-10 gap-5 text-center sm:text-end font-[DM Sans] md:h-225 overflow-hidden">
+    <div class="basis-1/2 md:h-full flex flex-col-reverse sm:flex-col">
       <img src="assets/about1.png" alt="أثاث يدوم لسنوات طويلة">
-      <div class="px-5 py-15 bg-[#F6F4F2] mt-4 grow">
-        <h2 class=" font-bold text-2xl sm:text-4xl mb-6">أثاث يدوم لسنوات طويلة</h2>
-        <p class="text-sm text-black/60 mb-6">هدفنا هو تسهيل عملية بيع الأثاث والأجهزة المستعملة بدون عناء
+      <div class="px-5 py-15 bg-[#F6F4F2] mb-4 sm:mb-0 mt-4 md:grow">
+        <h2 class=" font-bold text-xl sm:text-4xl mb-6">أثاث يدوم لسنوات طويلة</h2>
+        <p class="text-xs sm:text-sm  text-black/60 mb-6">هدفنا هو تسهيل عملية بيع الأثاث والأجهزة المستعملة بدون عناء
           ، لذلك نلتزم بالسرعة، 
           المصداقية، والدفع الفوري، 
           ونسعى دائمًا لتقديم أفضل قيمة ممكنة لعملائنا.
            تواصل معنا الآن وسنقوم بخدمتك في أقرب وقت.</p>
-           <div class="flex gap-4 justify-end"><a  href="tel:+96599482898" 
+           <div class="flex gap-4 justify-center sm:justify-end"><a  href="tel:+96599482898" 
           class="btn bg-[#947458] text-white px-6 py-2 mb-4
                   transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-[#947458] duration-300
       ">اتصل الان</a> </div>
@@ -80,7 +81,7 @@
      <div class="basis-1/2">
       <div class="px-5 py-15 bg-[#F9F9F9] mb-4">
         <h2 class=" font-bold text-2xl sm:text-4xl mb-6">عش براحه داخل بيتك</h2>
-        <p class="text-sm text-black/60 mb-6">
+        <p class="text-xs sm:text-sm text-black/60 mb-6">
           نحن نعمل في شراء الأثاث المستعمل داخل جميع مناطق الكويت، 
           ونقوم بشراء جميع أنواع الأثاث المنزلي والمكتبي،
            غرف النوم، المطابخ،
@@ -89,7 +90,7 @@
            فك الأثاث،
            النقل بدون أي مجهود من العميل،
            مع دفع كاش وبأفضل سعر حسب حالة الأثاث.</p>
-           <div class="flex gap-4 justify-end"><a  href="tel:+96599482898" 
+           <div class="flex gap-4  justify-center sm:justify-end"><a  href="tel:+96599482898" 
           class="btn bg-[#947458] text-white px-6 py-2 mb-4
                   transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-[#947458] duration-300
       ">اتصل الان</a> </div>
@@ -99,8 +100,20 @@
   </div>
 </section>
 
-<section>
-  <img src="assets/HeroFooter.png" alt="">
+<section class="relative">
+  <img class="absolute top-0 left-0 max-h-40/100 sm:max-h-[60%]" src="assets/light.png" alt="">
+  <div class="flex flex-col text-center sm:flex-row items-center bg-[#B38F76] p-10">
+    <div class="sm:basis-60/100 flex flex-col items-end justify-center text-center mt-[40%] sm:mt-0">
+      <div class="w-80/100">
+        <h2 class="text-2xl font-bold mb-5">أثاث عملي يتحمل الاستخدام اليومي</h2>
+        <h3 class="text-white text-xs sm:text-sm">نوفر أثاثًا بجودة عالية وتصميم متين ليمنحك راحة تدوم لسنوات طويلة دون قلق.</h3>
+      </div>
+    </div>
+    <div  class="sm:basis-40/100 ">
+      <img src="assets/chair.png" alt="">
+    </div>
+    
+  </div>
 </section>
 
 <footer class="text-center bg-[#EBE8DF] m-0">
@@ -111,7 +124,7 @@
       ">تواصل معنا</a> </div>
       <h3 class="font-medium text-2xl my-3">المتجر</h3>
 
-      <div class="flex gap-5 mb-5">
+      <div class="flex flex-col sm:flex-row  sm:gap-5 mb-5">
         <p>كراسى</p>
         <p>غرف نوم</p>
         <p>اريكات</p>
